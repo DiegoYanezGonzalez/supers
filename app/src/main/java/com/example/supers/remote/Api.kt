@@ -8,7 +8,8 @@ import retrofit2.http.GET
 
 interface Api{
     @GET("all.json")
-   suspend fun getAllHeroes(): List<HeroesEntityPojo>
+     fun getAllHeroes(): Call<List<HeroesEntityPojo>>
+   //suspend fun getAllHeroes(): List<HeroesEntityPojo>
 
 
 

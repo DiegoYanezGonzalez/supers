@@ -33,7 +33,7 @@ class HeroesAdapter(var myDataHeroes:List<HeroesEntityPojo>):
     override fun onBindViewHolder(holder: HeroesViewHolder, position: Int) {
         val heros = myDataHeroes[position]
         holder.nombre.text=heros.name.toString()
-        Picasso.get().load("https://acdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md${heros.imageUrl}.jpg:").into(holder.image)
+        Picasso.get().load(heros.imageUrl.md).into(holder.image)
        // Picasso.get().setIndicatorsEnabled(true)
     }
     //InnerClass View Holder

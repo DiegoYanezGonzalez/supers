@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         mViewModel.getDataFromDB().observe(this,{
+            Log.d("datos",it.toString())
             listaHero=it
             heroAdapter.updateData(listaHero)
         })

@@ -25,34 +25,33 @@ class HeroesRepositorio(context:Context) {
         return heroesList
     }
 
-    suspend fun getAll()=RetrofitClient.retrofitInstance().getAllHeroes()
+//    suspend fun getAll()=RetrofitClient.retrofitInstance().getAllHeroes()
 
     fun insertSuperFromNet(){
         CoroutineScope(IO).launch {
-            dbHero.heroesDao().insertAllSuperHeroesInDb(getAll())
+         //   dbHero.heroesDao().insertAllSuperHeroesInDb(getAll())
         }
     }
-}
-
-
-
-
-    /*//Llamada a Retrofit
-    fun fetchHeroesFromServer(){
+    fun fetchHeroesFromServer() {
         val service = RetrofitClient.retrofitInstance()
         val call = service.getAllHeroes()
 
         call.enqueue(object : Callback<List<HeroesEntityPojo>> {
-            override fun onResponse(call: Call<List<HeroesEntityPojo>>,
-                                    response: Response<List<HeroesEntityPojo>>) {
+            override fun onResponse(
+                call: Call<List<HeroesEntityPojo>>,
+                response: Response<List<HeroesEntityPojo>>
+            ) {
+                Log.d("superdato",response.body().toString())
                 CoroutineScope(Dispatchers.IO).launch {
-                    response.body()?.let { dbHero.heroesDao().insertSuperHero(it) }
+                    response.body()?.let { dbHero.heroesDao().insertAllSuperHeroesInDb(response.body()!!) }
                 }
             }
 
             override fun onFailure(call: Call<List<HeroesEntityPojo>>, t: Throwable) {
-                Log.d(tag,t.message.toString())
+                Log.d(tag, t.message.toString())
             }
 
-        })*/
+        })
 
+    }
+}
