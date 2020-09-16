@@ -33,14 +33,17 @@ class HeroesAdapter(var myDataHeroes:List<HeroesEntityPojo>):
     override fun onBindViewHolder(holder: HeroesViewHolder, position: Int) {
         val heros = myDataHeroes[position]
         holder.nombre.text=heros.name.toString()
+        holder.id=heros.id
         Picasso.get().load(heros.imageUrl.md).into(holder.image)
-       // Picasso.get().setIndicatorsEnabled(true)
+
     }
     //InnerClass View Holder
     class HeroesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
         var nombre: TextView = itemView.tvNombre
         var image :ImageView=itemView.imageView
+        var id:Int=itemView.id
+
     }
 
 }

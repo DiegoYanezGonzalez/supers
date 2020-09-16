@@ -12,7 +12,6 @@ class HeroesViewModel(application: Application):AndroidViewModel(application) {
     private val heroesList = repositorio.passLiveDataToViewModel()
 
     fun fetchFromServer(){
-        //repositorio.insertSuperFromNet()
         repositorio.fetchHeroesFromServer()
     }
 

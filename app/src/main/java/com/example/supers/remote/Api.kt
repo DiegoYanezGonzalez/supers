@@ -9,7 +9,7 @@ import retrofit2.http.GET
 interface Api{
     @GET("all.json")
      fun getAllHeroes(): Call<List<HeroesEntityPojo>>
-   //suspend fun getAllHeroes(): List<HeroesEntityPojo>
+
 
 
 
